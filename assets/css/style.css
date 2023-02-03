@@ -1,0 +1,95 @@
+/**
+ * @author Gabriel Aplok (@gabriel-aplok)
+ * @description FireWave Material Design.
+*/
+
+@import url('https://fonts.googleapis.com/css2?family=Lato&display=swap');
+
+@font-face {
+	font-family: 'Firealistic';
+	src: url('./../font/firealistic-regular.otf');
+}
+
+:root {
+	--shark: #282b2c;
+	--iron: #d0d2d4;
+	--oslo-gray: #939496;
+	--manatee: #8c8c94;
+	--primary: #000000;
+	--text-primary: var(--iron);
+	--text-secondary: var(--oslo-gray);
+}
+
+* {
+	font-family: 'Lato', Sans-Serif;
+	font-size: 1rem;
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	transition-duration: 0.5s;
+	user-select: none;
+	user-zoom: none;
+	webkit-user-select: none;
+}
+
+
+body {
+	background-color: var(--primary);
+	color: var(--text-primary);
+}
+
+.header {
+	background-image: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 1)), url('./../img/background.png');
+	background-attachment: local;
+	background-repeat: no-repeat;
+	background-size: cover;
+	justify-content: center;
+	text-align: center;
+	flex-direction: column;
+	display: flex;
+	gap: 1em;
+	height: 100vh;
+}
+
+.header .logo h1 {
+	color: var(--text-primary);
+	font-size: 10vw;
+	font-family: 'Firealistic';
+}
+
+.header .logo h1:hover {
+	transform: scale(1.5);
+}
+
+.header .tagline p {
+	color: var(--text-primary);
+	font-size: 3vw;
+}
+
+.header .call-to-action {
+	margin: 50px;
+	padding: 20px;
+	font-size: 26px;
+	border: 1px solid var(--text-primary);
+	background-color: transparent;
+	color: var(--text-primary);
+	text-align: center;
+	cursor: none;
+}
+
+.header .call-to-action:hover,
+.header .call-to-action:focus {
+	background-color: var(--text-primary);
+	color: var(--primary);
+}
+
+.main {
+	height: 50vh;
+}
+
+.footer {
+	background-color: var(--primary);
+	color: var(--text-secondary);
+	text-align: center;
+	padding: 50px;
+}
