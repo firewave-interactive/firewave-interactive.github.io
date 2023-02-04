@@ -42,6 +42,10 @@ input, textarea {
 	-webkit-user-select: text;
 }
 
+h1, h2, h3, h4, h5, h6 {
+	color: var(--text-primary);
+}
+
 a, p {
 	color: var(--text-secondary);
 }
@@ -54,7 +58,7 @@ a:hover {
 	background-color: var(--text-primary);
 	position: fixed;
 	text-align: center;
-	display: block;
+	display: none;
 	border-top: 1px solid var(--text-primary);
 	border-top-left-radius: 6px;
 	border-top-right-radius: 6px;
@@ -144,7 +148,7 @@ a:hover {
 	font-size: 3vw;
 }
 
-.header > .call-to-action {
+.header > a > .call-to-action {
 	margin: 50px;
 	padding: 20px;
 	font-size: 26px;
@@ -154,13 +158,34 @@ a:hover {
 	text-align: center;
 }
 
-.header > .call-to-action:hover {
+.header > a > .call-to-action:hover {
 	background-color: var(--text-primary);
 	color: var(--primary);
 }
 
 .main {
-	height: 80vh;
+	padding: 8px;
+}
+
+.main > .section {
+	justify-content: center;
+	text-align: center;
+	flex-direction: column;
+	display: flex;
+	gap: 1em;
+	padding: 2px;
+}
+
+.main > .section > .title {
+	font-size: 1.85em;
+	text-align: center;
+}
+
+.main > .section > .tagline {
+	padding-left: 10px;
+	padding-right: 10px;
+	font-size: 1.25em;
+	text-align: center;
 }
 
 .footer {
