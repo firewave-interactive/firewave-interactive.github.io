@@ -1,23 +1,27 @@
-function theme() {
-	if (window.matchMedia && window.matchMedia("(prefers-color-scheme: light)").matches) {
-		document.body.classList.add("light-theme");
-	}
+footer = function() {
+	document.querySelector(".date-year").innerText = new Date().getFullYear();
 }
 
-function footer() {
-	const dateYear = document.getElementById("date-year");
+footer();
 
-	dateYear.innerText = new Date().getFullYear();
-}
+cookieConsent = function() {
+	document.addEventListener("DOMContentLoaded", function() {
+		const cookieConsent = document.querySelector(".cookie-consent");
+		const cookieConsentButton = document.querySelector(".cookie-consent-button");
 
-function loading() {
-	window.addEventListener("load", function() {
-		setInterval(function() {
-			document.body.classList.add("loaded");
-		}, 1500);
+		if (!localStorage.getItem("cookieConsent")) {
+			cookieConsent.style.display = "block";
+		}
+
+		cookieConsent.addEventListener("click", function(event) {
+			event.preventDefault();
+		});
+
+		cookieConsentButton.addEventListener("click", function() {
+			localStorage.setItem("cookieConsent", true);
+			cookieConsent.style.display = "none";
+		});
 	});
 }
 
-theme();
-footer();
-loading();
+cookieConsent();

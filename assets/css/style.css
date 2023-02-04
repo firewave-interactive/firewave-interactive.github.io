@@ -1,13 +1,8 @@
-/**
- * @author Gabriel Aplok (@gabriel-aplok)
- * @description FireWave Material Design.
-*/
-
 @import url('https://fonts.googleapis.com/css2?family=Lato&display=swap');
 
 @font-face {
 	font-family: 'Firealistic';
-	src: url('./../font/firealistic-regular.otf');
+	src: url('../font/firealistic-regular.otf');
 }
 
 :root {
@@ -16,15 +11,15 @@
 	--oslo-gray: #939496;
 	--manatee: #8c8c94;
 	--primary: #000000;
+	--text-primary: #d0d2d4;
+	--text-secondary: #939496;
 	--overlay: rgba(0, 0, 0, 0.6);
-	--text-primary: var(--iron);
-	--text-secondary: var(--oslo-gray);
-	--menu-speed: 0.75s;
 }
 
 * {
 	font-family: 'Lato', Sans-Serif;
 	font-size: 1rem;
+	letter-spacing: 0.1rem;
 	margin: 0;
 	padding: 0;
 	box-sizing: border-box;
@@ -36,10 +31,10 @@
 }
 
 body {
-	width: 100vw;
-	height: 100vh;
 	background-color: var(--primary);
 	color: var(--text-primary);
+	width: 100%;
+	height: 100%;
 }
 
 input, textarea {
@@ -47,38 +42,46 @@ input, textarea {
 	-webkit-user-select: text;
 }
 
-body .loading {
-	position: fixed;
-	background-color: var(--primary);
-	width: 100vw;
-	height: 100vh;
-	z-index: 1;
-	display: flex;
-	align-items: center;
-	text-align: center;
-	justify-content: center;
-}
-
-body .loading > p {
+a, p {
 	color: var(--text-secondary);
-	letter-spacing: 0.2rem;
 }
 
-body .container {
-	display: none;
+a:hover {
+	text-decoration: none;
 }
 
-body.loaded .loading {
-  display: none;
+.cookie-consent {
+	background-color: var(--text-primary);
+	position: fixed;
+	text-align: center;
+	display: block;
+	border-top: 1px solid var(--text-primary);
+	border-top-left-radius: 6px;
+	border-top-right-radius: 6px;
+	padding: 2em;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	z-index: 1;
 }
 
-body.loaded .container {
-  display: block;
+.cookie-consent > h1,
+.cookie-consent > h2,
+.cookie-consent > h3,
+.cookie-consent > h4,
+.cookie-consent > h5,
+.cookie-consent > h6 {
+	color: var(--primary);
+}
+
+.cookie-consent > a,
+.cookie-consent > p {
+	color: var(--primary);
 }
 
 .header {
 	position: relative;
-	background-image: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 1)), url('./../img/background.png');
+	background-image: linear-gradient(var(--overlay), var(--primary)), url('./../img/background.png');
 	background-attachment: local;
 	background-repeat: no-repeat;
 	background-size: cover;
@@ -90,7 +93,7 @@ body.loaded .container {
 	height: 100vh;
 }
 
-.header .navigation {
+.header > .navigation {
 	position: absolute;
 	color: var(--text-primary);
 	font-size: 2rem;
@@ -99,49 +102,49 @@ body.loaded .container {
 	right: 0;
 }
 
-.header .navigation > ul {
+.header > .navigation ul {
 	list-style: none;
 	display: flex;
 }
 
-.header .navigation > ul > li {
+.header > .navigation > ul > li {
 	flex: 1;
 	text-align: center;
 }
 
-.header .navigation > ul > li > a {
+.header > .navigation > ul > li > a {
 	text-decoration: none;
 	color: var(--text-primary);
 	padding: 10px;
 }
 
-.header .navigation > ul > li > a:hover,
-.header .navigation > ul > li > a.active {
+.header > .navigation > ul > li > a:hover,
+.header > .navigation > ul > li > a.active {
 	color: var(--text-secondary);
 	border-bottom: 4px solid var(--text-secondary);
 	border-bottom-left-radius: 2px;
 	border-bottom-right-radius: 2px;
 }
 
-.header .logo > h1 {
+.header > .logo > h1 {
 	color: var(--text-primary);
 	font-size: 10vw;
 	font-family: 'Firealistic';
 	animation: header-logo 4s linear infinite;
 }
 
-.header .logo:hover {
+.header > .logo:hover {
 	transform: scale(1.05);
 }
 
-.header .tagline > p {
+.header > .tagline > p {
 	color: var(--text-primary);
 	letter-spacing: 0.4rem;
 	padding: 2px;
 	font-size: 3vw;
 }
 
-.header .call-to-action {
+.header > .call-to-action {
 	margin: 50px;
 	padding: 20px;
 	font-size: 26px;
@@ -151,13 +154,13 @@ body.loaded .container {
 	text-align: center;
 }
 
-.header .call-to-action:hover {
+.header > .call-to-action:hover {
 	background-color: var(--text-primary);
 	color: var(--primary);
 }
 
 .main {
-	height: 50vh;
+	height: 80vh;
 }
 
 .footer {
@@ -171,21 +174,49 @@ body.loaded .container {
 	padding: 50px;
 }
 
-.footer .social-media {
+.footer > .social-media {
 	justify-content: center;
 	text-align: center;
 	display: flex;
 	padding: 8px;
 }
 
-.footer .social-media > a {
+.footer > .social-media > a {
 	color: var(--text-secondary);
 	text-decoration: none;
 	flex: 0.1;
 }
 
-.footer .social-media > a:hover {
-	color: var(--manatee);
+.footer > .social-media > a:hover {
+	color: var(--text-primary);
+}
+
+.button-primary-outline {
+	padding: 1.25em;
+	border: 1px solid var(--primary);
+	background-color: transparent;
+	color: var(--primary);
+	text-align: center;
+}
+
+.button-primary-outline:hover {
+	background-color: var(--primary);
+	color: var(--text-primary);
+}
+
+.button-text-primary-outline {
+	margin: 50px;
+	padding: 20px;
+	font-size: 26px;
+	border: 1px solid var(--text-primary);
+	background-color: transparent;
+	color: var(--text-primary);
+	text-align: center;
+}
+
+.button-text-primary-outline:hover {
+	background-color: var(--text-primary);
+	color: var(--primary);
 }
 
 @keyframes header-logo {
