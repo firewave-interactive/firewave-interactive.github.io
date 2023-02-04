@@ -16,8 +16,10 @@
 	--oslo-gray: #939496;
 	--manatee: #8c8c94;
 	--primary: #000000;
+	--overlay: rgba(0, 0, 0, 0.6);
 	--text-primary: var(--iron);
 	--text-secondary: var(--oslo-gray);
+	--menu-speed: 0.75s;
 }
 
 * {
@@ -26,19 +28,56 @@
 	margin: 0;
 	padding: 0;
 	box-sizing: border-box;
-	transition-duration: 0.5s;
+	transition-duration: 0.2s;
+	cursor: none;
 	user-select: none;
 	user-zoom: none;
 	webkit-user-select: none;
 }
 
-
 body {
+	width: 100vw;
+	height: 100vh;
 	background-color: var(--primary);
 	color: var(--text-primary);
 }
 
+input, textarea {
+	user-select: text;
+	-webkit-user-select: text;
+}
+
+body .loading {
+	position: fixed;
+	background-color: var(--primary);
+	width: 100vw;
+	height: 100vh;
+	z-index: 1;
+	display: flex;
+	align-items: center;
+	text-align: center;
+	justify-content: center;
+}
+
+body .loading > p {
+	color: var(--text-secondary);
+	letter-spacing: 0.2rem;
+}
+
+body .container {
+	display: none;
+}
+
+body.loaded .loading {
+  display: none;
+}
+
+body.loaded .container {
+  display: block;
+}
+
 .header {
+	position: relative;
 	background-image: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 1)), url('./../img/background.png');
 	background-attachment: local;
 	background-repeat: no-repeat;
@@ -51,18 +90,54 @@ body {
 	height: 100vh;
 }
 
-.header .logo h1 {
+.header .navigation {
+	position: absolute;
+	color: var(--text-primary);
+	font-size: 2rem;
+	top: 50px;
+	left: 0;
+	right: 0;
+}
+
+.header .navigation > ul {
+	list-style: none;
+	display: flex;
+}
+
+.header .navigation > ul > li {
+	flex: 1;
+	text-align: center;
+}
+
+.header .navigation > ul > li > a {
+	text-decoration: none;
+	color: var(--text-primary);
+	padding: 10px;
+}
+
+.header .navigation > ul > li > a:hover,
+.header .navigation > ul > li > a.active {
+	color: var(--text-secondary);
+	border-bottom: 4px solid var(--text-secondary);
+	border-bottom-left-radius: 2px;
+	border-bottom-right-radius: 2px;
+}
+
+.header .logo > h1 {
 	color: var(--text-primary);
 	font-size: 10vw;
 	font-family: 'Firealistic';
+	animation: header-logo 4s linear infinite;
 }
 
-.header .logo h1:hover {
-	transform: scale(1.5);
+.header .logo:hover {
+	transform: scale(1.05);
 }
 
-.header .tagline p {
+.header .tagline > p {
 	color: var(--text-primary);
+	letter-spacing: 0.4rem;
+	padding: 2px;
 	font-size: 3vw;
 }
 
@@ -74,11 +149,9 @@ body {
 	background-color: transparent;
 	color: var(--text-primary);
 	text-align: center;
-	cursor: none;
 }
 
-.header .call-to-action:hover,
-.header .call-to-action:focus {
+.header .call-to-action:hover {
 	background-color: var(--text-primary);
 	color: var(--primary);
 }
@@ -90,6 +163,39 @@ body {
 .footer {
 	background-color: var(--primary);
 	color: var(--text-secondary);
+	justify-content: center;
 	text-align: center;
+	flex-direction: column;
+	display: flex;
+	gap: 1em;
 	padding: 50px;
+}
+
+.footer .social-media {
+	justify-content: center;
+	text-align: center;
+	display: flex;
+	padding: 8px;
+}
+
+.footer .social-media > a {
+	color: var(--text-secondary);
+	text-decoration: none;
+	flex: 0.1;
+}
+
+.footer .social-media > a:hover {
+	color: var(--manatee);
+}
+
+@keyframes header-logo {
+	0% {
+		color: var(--text-primary);
+	}
+	50% {
+		color: var(--text-secondary);
+	}
+	100% {
+		color: var(--text-primary);
+	}
 }
