@@ -21,7 +21,7 @@
 	--primary: #ffffff;
 	--text-primary: var(--shark);
 	--text-secondary: var(--manatee);
-	--overlay: rgba(0, 0, 0, 0.02);
+	--overlay: var(--primary);
 }
 
 * {
@@ -31,7 +31,7 @@
 	margin: 0;
 	padding: 0;
 	box-sizing: border-box;
-	transition-duration: 0.2s;
+	transition-duration: 0.5s;
 	cursor: none;
 	user-select: none;
 	user-zoom: none;
@@ -148,7 +148,6 @@ a:hover {
 	color: var(--text-primary);
 	font-size: 10vw;
 	font-family: 'Firealistic';
-	animation: header-logo 1s linear infinite;
 }
 
 .header > .logo:hover {
@@ -260,16 +259,4 @@ a:hover {
 .button-text-primary-outline:hover {
 	background-color: var(--text-primary);
 	color: var(--primary);
-}
-
-@keyframes header-logo {
-	0% {
-		color: var(--text-primary);
-	}
-	50% {
-		color: var(--text-secondary);
-	}
-	100% {
-		color: var(--text-primary);
-	}
 }
