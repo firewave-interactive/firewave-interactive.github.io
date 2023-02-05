@@ -11,9 +11,17 @@
 	--oslo-gray: #939496;
 	--manatee: #8c8c94;
 	--primary: #000000;
-	--text-primary: #d0d2d4;
-	--text-secondary: #939496;
+	--text-primary: var(--iron);
+	--text-secondary: var(--oslo-gray);
+	--brand: #ff5722;
 	--overlay: rgba(0, 0, 0, 0.6);
+}
+
+.light-theme {
+	--primary: #ffffff;
+	--text-primary: var(--shark);
+	--text-secondary: var(--manatee);
+	--overlay: rgba(0, 0, 0, 0.02);
 }
 
 * {
@@ -51,7 +59,12 @@ a, p {
 }
 
 a:hover {
+	color: var(--brand);
 	text-decoration: none;
+}
+
+.brand {
+	color: var(--brand);
 }
 
 .cookie-consent {
@@ -94,7 +107,7 @@ a:hover {
 	flex-direction: column;
 	display: flex;
 	gap: 1em;
-	height: 100vh;
+	height: 90vh;
 }
 
 .header > .navigation {
@@ -109,50 +122,51 @@ a:hover {
 .header > .navigation ul {
 	list-style: none;
 	display: flex;
+	padding: 1.1em;
 }
 
 .header > .navigation > ul > li {
-	flex: 1;
 	text-align: center;
+	flex: 1;
 }
 
 .header > .navigation > ul > li > a {
 	text-decoration: none;
 	color: var(--text-primary);
-	padding: 10px;
+	padding: 0.5em;
 }
 
 .header > .navigation > ul > li > a:hover,
 .header > .navigation > ul > li > a.active {
 	color: var(--text-secondary);
-	border-bottom: 4px solid var(--text-secondary);
-	border-bottom-left-radius: 2px;
-	border-bottom-right-radius: 2px;
+	border-bottom: 0.25em solid var(--text-secondary);
+	border-bottom-left-radius: 0.15em;
+	border-bottom-right-radius: 0.15em;
 }
 
 .header > .logo > h1 {
 	color: var(--text-primary);
 	font-size: 10vw;
 	font-family: 'Firealistic';
-	animation: header-logo 4s linear infinite;
+	animation: header-logo 1s linear infinite;
 }
 
 .header > .logo:hover {
-	transform: scale(1.05);
+	transform: scale(0.8);
 }
 
 .header > .tagline > p {
 	color: var(--text-primary);
 	letter-spacing: 0.4rem;
-	padding: 2px;
+	padding: 1.2em;
 	font-size: 3vw;
 }
 
 .header > a > .call-to-action {
-	margin: 50px;
-	padding: 20px;
-	font-size: 26px;
-	border: 1px solid var(--text-primary);
+	margin: 2em;
+	padding: 1.1em;
+	font-size: 1.2em;
+	border: 0.1em solid var(--text-primary);
 	background-color: transparent;
 	color: var(--text-primary);
 	text-align: center;
@@ -164,7 +178,7 @@ a:hover {
 }
 
 .main {
-	padding: 8px;
+	padding: 2em;
 }
 
 .main > .section {
@@ -173,18 +187,17 @@ a:hover {
 	flex-direction: column;
 	display: flex;
 	gap: 1em;
-	padding: 2px;
 }
 
 .main > .section > .title {
-	font-size: 1.85em;
+	font-size: 1.4em;
 	text-align: center;
 }
 
 .main > .section > .tagline {
-	padding-left: 10px;
-	padding-right: 10px;
-	font-size: 1.25em;
+	padding-left: 1.1em;
+	padding-right: 1.1em;
+	font-size: 1.2em;
 	text-align: center;
 }
 
@@ -196,13 +209,14 @@ a:hover {
 	flex-direction: column;
 	display: flex;
 	gap: 1em;
-	padding: 50px;
+	padding: 3em;
 }
 
 .footer > .social-media {
 	justify-content: center;
 	text-align: center;
 	display: flex;
+	gap: 2em;
 	padding: 8px;
 }
 
@@ -216,9 +230,15 @@ a:hover {
 	color: var(--text-primary);
 }
 
+.footer .theme-switch {
+	position: relative;
+	right: 0;
+	bottom: 0;
+}
+
 .button-primary-outline {
-	padding: 1.25em;
-	border: 1px solid var(--primary);
+	padding: 1.1em;
+	border: 0.1em solid var(--primary);
 	background-color: transparent;
 	color: var(--primary);
 	text-align: center;
@@ -230,10 +250,8 @@ a:hover {
 }
 
 .button-text-primary-outline {
-	margin: 50px;
-	padding: 20px;
-	font-size: 26px;
-	border: 1px solid var(--text-primary);
+	padding: 1.1em;
+	border: 0.1em solid var(--text-primary);
 	background-color: transparent;
 	color: var(--text-primary);
 	text-align: center;

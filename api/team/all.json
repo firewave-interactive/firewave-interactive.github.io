@@ -1,0 +1,22 @@
+[
+	{
+		"username": "gabriel-aplok",
+		"name": "Gabriel Lima",
+		"description": "Às vezes, um desenvolvedor de software ou, às vezes, um desenvolvedor de jogos, programador full-stack e artista 2D/UI/UX. Fundador FireWave Interactive.",
+		"role": "CEO",
+		"links": [
+			{ "portfolio": "#" },
+			{ "twitter": "#" }
+		]
+	},
+	{
+		"username": "asN6a",
+		"name": "Aislan Alves",
+		"description": "É apaixonado por jogos de ficção científica e de terror. Um belo programador e artista 2D. Co-Fundador FireWave Interactive.",
+		"role": "CCO",
+		"links": [
+			{ "portfolio": "#" },
+			{ "twitter": "#" }
+		]
+	}
+]
