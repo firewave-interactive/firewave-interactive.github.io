@@ -1,3 +1,3 @@
-# FireWave Site
+# FireWave Interactive Site
 
-Esta é a principal página de destino do site da FireWave; Ele é implantado [aqui](https://firewave-interactive.github.io/) via Github Pages.
+Esta é a principal página de destino do site da FireWave Interactive; Ele é implantado [aqui](https://firewave-interactive.github.io/) via Github Pages.
