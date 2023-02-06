@@ -229,10 +229,14 @@ a:hover {
 	color: var(--text-primary);
 }
 
-.footer .theme-switch {
+.footer > .theme-switch {
 	position: relative;
 	right: 0;
 	bottom: 0;
+}
+
+.footer > .theme-switch > i {
+	display: none;
 }
 
 .button-primary-outline {
@@ -259,4 +263,7 @@ a:hover {
 .button-text-primary-outline:hover {
 	background-color: var(--text-primary);
 	color: var(--primary);
+}
+
+@media only screen and (min-width: 576px) {
 }
