@@ -2,15 +2,13 @@ footer = () => {
 	document.querySelector(".date-year").innerText = new Date().getFullYear();
 }
 
-footer();
-
 cookieConsent = () => {
 	document.addEventListener("DOMContentLoaded", () => {
 		const cookieConsent = document.querySelector(".cookie-consent");
 		const cookieConsentButton = document.querySelector(".cookie-consent-button");
 
 		if (localStorage.getItem("cookie-consent")) {
-			cookieConsent.style.display = "none";
+			cookieConsent.style.display = "block";
 		} else {
 			cookieConsent.style.display = "block";
 		}
@@ -25,8 +23,6 @@ cookieConsent = () => {
 		});
 	});
 }
-
-cookieConsent();
 
 theme = () => {
 	const toggleTheme = document.querySelector(".toggle-theme");
@@ -64,12 +60,11 @@ theme = () => {
 	});
 }
 
-theme();
-
 const hostnames = [
 	"firewave-interactive.github.io",
 	"firewave-interactive.com.br",
 	"firewave-interactive.com",
+	"firewave-interactive.org",
 	"firewave-interactive.net",
 	"localhost"
 ];
@@ -85,7 +80,9 @@ hostnames.forEach((hostname) => {
 });
 
 if (hostnameMatchFound) {
-	console.log(`Matched ${window.location.hostname}`)
+	footer();
+	cookieConsent();
+	theme();
 } else {
-	console.log(`Not matched ${window.location.hostname}`)
+	alert('This site has not been authorized to use our services, signed FireWave Interactive.'); 
 }
