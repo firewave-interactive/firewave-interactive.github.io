@@ -8,7 +8,7 @@ cookieConsent = () => {
 		const cookieConsentButton = document.querySelector(".cookie-consent-button");
 
 		if (localStorage.getItem("cookie-consent")) {
-			cookieConsent.style.display = "block";
+			cookieConsent.style.display = "none";
 		} else {
 			cookieConsent.style.display = "block";
 		}
@@ -66,7 +66,13 @@ const hostnames = [
 	"firewave-interactive.com",
 	"firewave-interactive.org",
 	"firewave-interactive.net",
-	"localhost"
+	"kolpa-engine.github.io",
+	"kolpa-engine.com.br",
+	"kolpa-engine.com",
+	"kolpa-engine.org",
+	"kolpa-engine.net",
+	"localhost",
+	"127.0.0.1"
 ];
 
 let hostnameMatchFound = false;
@@ -84,5 +90,5 @@ if (hostnameMatchFound) {
 	cookieConsent();
 	theme();
 } else {
-	alert('This site has not been authorized to use our services, signed FireWave Interactive.'); 
+	alert('This site has not been authorized to use our services.\nBy FireWave Interactive.'); 
 }

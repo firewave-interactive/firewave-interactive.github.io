@@ -1,12 +1,5 @@
 title: FireWave Interactive
 description: Inovando com paixão, jogando com determinação.
 
-baseurl: ""
-
-url: "https://firewave-interactive.github.io/"
-
-markdown: kramdown
-
-collections:
-  posts:
-    output: true
+plugins:
+  - "jekyll-sitemap"
