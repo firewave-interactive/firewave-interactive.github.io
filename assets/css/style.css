@@ -6,20 +6,20 @@
 }
 
 :root {
-	--shark: #282b2c;
-	--iron: #d0d2d4;
+	--shark: #282B2C;
+	--iron: #D0D2D4;
 	--oslo-gray: #939496;
-	--manatee: #8c8c94;
+	--manatee: #8C8C94;
 	--primary: #000000;
 	--text-primary: var(--iron);
 	--text-secondary: var(--oslo-gray);
-	--brand: #ff5722;
+	--brand: #FF5722;
 	--overlay: rgba(0, 0, 0, 0.6);
 	--font-family: 'Lato', "Helvetica Neue", Helvetica, Arial, Sans-Serif;
 }
 
 .light-theme {
-	--primary: #ffffff;
+	--primary: #FFFFFF;
 	--text-primary: var(--shark);
 	--text-secondary: var(--manatee);
 	--overlay: var(--primary);
@@ -27,61 +27,55 @@
 
 * {
 	font-family: var(--font-family);
-	font-size: 0.95em;
-	letter-spacing: 0.1em;
-	line-height: 1.5;
 	margin: 0;
 	padding: 0;
 	box-sizing: border-box;
-	transition-duration: 0.25em;
-	user-select: none;
-	webkit-user-select: none;
-	-webkit-box-sizing: border-box;
+	transition-duration: 0.1s;
 }
 
 body {
 	background-color: var(--primary);
 	color: var(--text-primary);
+	font-size: 15px;
+	letter-spacing: 0.5px;
+	line-height: 1.6;
 	width: 100vw;
 	height: 100vh;
 }
 
-input, textarea {
-	user-select: text;
-	-webkit-user-select: text;
-}
-
 h1, h2, h3, h4, h5, h6 {
 	color: var(--text-primary);
+	font-weight: bold;
 }
 
 h1 {
-	font-size: 2em;
+	font-size: 32px;
 }
 
 h2 {
-	font-size: 1.5em;
+	font-size: 28px;
 }
 
 h3 {
-	font-size: 1.25em;
+	font-size: 24px;
 }
 
 h4 {
-	font-size: 1em;
+	font-size: 20px;
 }
 
 h5 {
-	font-size: 0.875em;
+	font-size: 16px;
 }
 
 h6 {
-	font-size: 0.85em;
+	font-size: 14px;
 	color: var(--text-secondary);
 }
 
 a, p {
 	color: var(--text-secondary);
+	text-decoration: none;
 }
 
 a:hover {
@@ -98,10 +92,10 @@ a:hover {
 	position: fixed;
 	text-align: center;
 	display: none;
-	border-top: 0.1em solid var(--text-primary);
-	border-top-left-radius: 0.6em;
-	border-top-right-radius: 0.6em;
-	padding: 2em;
+	border-top: 20px solid var(--text-primary);
+	border-top-left-radius: 20px;
+	border-top-right-radius: 20px;
+	padding: 20px;
 	left: 0;
 	right: 0;
 	bottom: 0;
@@ -128,8 +122,10 @@ a:hover {
 	text-align: center;
 	flex-direction: column;
 	display: flex;
-	gap: 1em;
-	height: 100vh;
+	gap: 10px;
+	padding-top: calc(50vw - 50vh);
+	padding-bottom: calc(50vw - 50vh);
+	min-height: calc(100vh);
 }
 
 .header.custom {
@@ -142,8 +138,8 @@ a:hover {
 .header > .navigation {
 	position: absolute;
 	color: var(--text-primary);
-	font-size: 1.25em;
-	top: 2.5em;
+	font-size: 20px;
+	top: 25px;
 	left: 0;
 	right: 0;
 }
@@ -151,7 +147,7 @@ a:hover {
 .header > .navigation ul {
 	list-style: none;
 	display: flex;
-	padding: 1.1em;
+	padding: 20px;
 }
 
 .header > .navigation > ul > li {
@@ -162,40 +158,35 @@ a:hover {
 .header > .navigation > ul > li > a {
 	text-decoration: none;
 	color: var(--text-primary);
-	padding: 0.5em;
+	padding: 10px;
 }
 
 .header > .navigation > ul > li > a:hover,
 .header > .navigation > ul > li > a.active {
 	color: var(--text-secondary);
-	border-bottom: 0.25em solid var(--text-secondary);
-	border-bottom-left-radius: 0.15em;
-	border-bottom-right-radius: 0.15em;
+	border-bottom: 4px solid var(--text-secondary);
+	border-bottom-left-radius: 2px;
+	border-bottom-right-radius: 2px;
 }
 
 .header > .logo > h1 {
 	color: var(--text-primary);
-	font-size: 10vw;
+	font-size: 80x;
 	font-family: 'Firealistic';
-	transition-duration: 0.5s;
-}
-
-.header > .logo:hover {
-	transform: scale(0.8);
 }
 
 .header > .tagline > p {
 	color: var(--text-primary);
-	letter-spacing: 0.4em;
-	padding: 1.2em;
-	font-size: 3vw;
+	letter-spacing: 6px;
+	padding: 12px;
+	font-size: 14px;
 }
 
 .header > a > .call-to-action {
-	margin: 2em;
-	padding: 1.1em;
-	font-size: 1.2em;
-	border: 0.1em solid var(--text-primary);
+	margin: 40px;
+	padding: 20px;
+	font-size: 16px;
+	border: 1px solid var(--text-primary);
 	background-color: transparent;
 	color: var(--text-primary);
 	text-align: center;
@@ -207,7 +198,7 @@ a:hover {
 }
 
 .main {
-	padding: 2em;
+	padding: 20px;
 }
 
 .main > .section {
@@ -215,20 +206,20 @@ a:hover {
 	text-align: center;
 	flex-direction: column;
 	display: flex;
-	margin-bottom: 2.5em;
-	gap: 1em;
+	margin-bottom: 20px;
+	gap: 20px;
 }
 
 .main > .section > .title {
-	font-size: 1.4em;
+	font-size: 30px;
 	text-align: center;
-	margin-bottom: 1.5em;
+	margin: 15px;
 }
 
 .main > .section > .tagline {
-	padding-left: 1.1em;
-	padding-right: 1.1em;
-	font-size: 1.2em;
+	padding-left: 20px;
+	padding-right: 20px;
+	font-size: 16px;
 	text-align: center;
 }
 
@@ -239,15 +230,15 @@ a:hover {
 	text-align: center;
 	flex-direction: column;
 	display: flex;
-	gap: 1em;
-	padding: 3em;
+	gap: 10px;
+	padding: 30px;
 }
 
 .footer > .social-media {
 	justify-content: center;
 	text-align: center;
 	display: flex;
-	gap: 2em;
+	gap: 20px;
 	padding: 8px;
 }
 
@@ -272,8 +263,8 @@ a:hover {
 }
 
 .button-primary-outline {
-	padding: 1.1em;
-	border: 0.1em solid var(--primary);
+	padding: 20px;
+	border: 1px solid var(--primary);
 	background-color: transparent;
 	color: var(--primary);
 	text-align: center;
@@ -285,8 +276,8 @@ a:hover {
 }
 
 .button-text-primary-outline {
-	padding: 1.1em;
-	border: 0.1em solid var(--text-primary);
+	padding: 20px;
+	border: 1px solid var(--text-primary);
 	background-color: transparent;
 	color: var(--text-primary);
 	text-align: center;
@@ -297,14 +288,32 @@ a:hover {
 	color: var(--primary);
 }
 
-@media(max-width:1080px) {
-	html {
-		font-size: 93.75%;
+@media (min-width: 0px) {
+	body {
+		font-size: 14px;
 	}
 }
 
-@media(max-width:720px) {
-	html {
-		font-size: 87.5%;
+@media (min-width: 576px) {
+	body {
+		font-size: 16px;
+	}
+}
+
+@media (min-width: 768px) {
+	body {
+		font-size: 18px;
+	}
+}
+
+@media (min-width: 992px) {
+	body {
+		font-size: 20px;
+	}
+}
+
+@media (min-width: 1200px) {
+	body {
+		font-size: 22px;
 	}
 }

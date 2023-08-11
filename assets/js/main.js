@@ -22,7 +22,7 @@ cookieConsent = () => {
 			cookieConsent.style.display = "none";
 		});
 	});
-}
+};
 
 theme = () => {
 	const toggleTheme = document.querySelector(".toggle-theme");
@@ -32,6 +32,10 @@ theme = () => {
 	if (window.matchMedia && window.matchMedia("(prefers-color-scheme: light)").matches) {
 		if (localStorage.getItem("theme") === null) {
 			localStorage.setItem("theme", "light");
+		}
+	} else if (window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches) {
+		if (localStorage.getItem("theme") === null) {
+			localStorage.setItem("theme", "dark");
 		}
 	}
 
@@ -58,7 +62,7 @@ theme = () => {
 			sun.style.display = "none";
 		}
 	});
-}
+};
 
 const hostnames = [
 	"firewave-interactive.github.io",
@@ -79,7 +83,6 @@ let hostnameMatchFound = false;
 
 hostnames.forEach((hostname) => {
 	if (window.location.hostname === hostname) {
-		console.log(`Host ${hostname}`);
 		hostnameMatchFound = true;
 		return;
 	}
@@ -90,5 +93,5 @@ if (hostnameMatchFound) {
 	cookieConsent();
 	theme();
 } else {
-	alert('This site has not been authorized to use our services.\nBy FireWave Interactive.'); 
+	alert('This site has not been authorized to use our services.\nBy FireWave Interactive.');
 }
