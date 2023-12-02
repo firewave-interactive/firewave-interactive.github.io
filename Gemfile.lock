@@ -55,6 +55,8 @@ GEM
     rexml (3.2.5)
     rouge (4.1.2)
     safe_yaml (1.0.5)
+    sass-embedded (1.63.6-aarch64-linux-android)
+      google-protobuf (~> 3.23)
     sass-embedded (1.63.6-arm-linux-androideabi)
       google-protobuf (~> 3.23)
     terminal-table (3.0.2)
@@ -63,6 +65,7 @@ GEM
     webrick (1.8.1)
 
 PLATFORMS
+  aarch64-linux-android
   arm-linux-androideabi
 
 DEPENDENCIES
@@ -74,4 +77,4 @@ DEPENDENCIES
   wdm (~> 0.1.1)
 
 BUNDLED WITH
-   2.4.15
+   2.4.10

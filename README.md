@@ -1,3 +1,3 @@
 # FireWave Interactive Site
 
-Esta é a principal página de destino do site da FireWave Interactive; Ele é hospedado [aqui](https://firewave-interactive.github.io/) via Github Pages.
+This is the main landing page on the FireWave Interactive website; It's hosted [here](https://firewave-interactive.github.io/) via Github Pages.
