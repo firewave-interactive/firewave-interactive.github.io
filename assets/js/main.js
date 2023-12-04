@@ -1,9 +1,9 @@
 footer = () => {
-	document.querySelector(".date-year").innerText = new Date().getFullYear();
+	document.querySelector(".footer-copyright-y").innerText = new Date().getFullYear();
 }
 
 cookieConsent = () => {
-	document.addEventListener("DOMContentLoaded", () => {
+	document.addEventListener("DOMContentLoaded", (event) => {
 		const cookieConsent = document.querySelector(".cookie-consent");
 		const cookieConsentButton = document.querySelector(".cookie-consent-button");
 
@@ -13,14 +13,14 @@ cookieConsent = () => {
 			cookieConsent.style.display = "block";
 		}
 
-		cookieConsent.addEventListener("click", (event) => {
+		cookieConsent.onclick = (event) => {
 			event.preventDefault();
-		});
+		};
 
-		cookieConsentButton.addEventListener("click", () => {
+		cookieConsentButton.onclick = (event) => {
 			localStorage.setItem("cookie-consent", true);
 			cookieConsent.style.display = "none";
-		});
+		};
 	});
 };
 
@@ -30,11 +30,11 @@ theme = () => {
 	const sun = toggleTheme.lastElementChild;
 
 	if (window.matchMedia && window.matchMedia("(prefers-color-scheme: light)").matches) {
-		if (localStorage.getItem("theme") === null) {
+		if (!localStorage.getItem("theme")) {
 			localStorage.setItem("theme", "light");
 		}
 	} else if (window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches) {
-		if (localStorage.getItem("theme") === null) {
+		if (!localStorage.getItem("theme")) {
 			localStorage.setItem("theme", "dark");
 		}
 	}
@@ -49,7 +49,7 @@ theme = () => {
 		sun.style.display = "none";
 	}
 
-	toggleTheme.addEventListener("click", () => {
+	toggleTheme.onclick = (event) => {
 		document.body.classList.toggle("light-theme");
 
 		if (document.body.classList.contains("light-theme")) {
@@ -61,7 +61,7 @@ theme = () => {
 			moon.style.display = "inline-block";
 			sun.style.display = "none";
 		}
-	});
+	};
 };
 
 const hostnames = [
