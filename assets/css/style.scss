@@ -30,20 +30,20 @@
 
 * {
 	font-family: var(--font-family);
-	max-width: 100%;
-	margin: 0;
-	padding: 0;
-	transition-duration: 0.5s;
 	box-sizing: border-box;
 	user-select: none;
 	-webkit-user-select: none;
 	-moz-user-select: none;
+	max-width: 100%;
+	margin: 0;
+	padding: 0;
+	transition-duration: 0.5s;
 }
 
 body {
 	background-color: var(--primary);
 	color: var(--text-primary);
-	letter-spacing: 0.6px;
+	letter-spacing: 1px;
 	line-height: 1.6;
 	scroll-behavior: smooth;
 }
@@ -388,6 +388,7 @@ a:hover {
 	background-color: transparent;
 	color: var(--primary);
 	text-align: center;
+	text-decoration: none;
 
 	&.small {
 		padding: 10px;
@@ -406,6 +407,7 @@ a:hover {
 	background-color: transparent;
 	color: var(--text-primary);
 	text-align: center;
+	text-decoration: none;
 
 	&.small {
 		padding: 10px;
