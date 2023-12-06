@@ -1,3 +1,6 @@
+---
+---
+
 @import url("https://fonts.googleapis.com/css2?family=Lato&display=swap");
 
 @font-face {
@@ -30,16 +33,19 @@
 	max-width: 100%;
 	margin: 0;
 	padding: 0;
+	transition-duration: 0.5s;
 	box-sizing: border-box;
+	user-select: none;
+	-webkit-user-select: none;
+	-moz-user-select: none;
 }
 
 body {
 	background-color: var(--primary);
 	color: var(--text-primary);
-	font-size: 16px;
 	letter-spacing: 0.6px;
 	line-height: 1.6;
-	transition-duration: 0.5s;
+	scroll-behavior: smooth;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -194,13 +200,12 @@ a:hover {
 	transform: rotate(0deg) scale(0.2, 0.2);
 }
 
-
 .header .navigation .menu {
 	background-color: var(--primary);
 	position: fixed;
 	width: 100%;
 	top: 0;
-	right: -500px;
+	right: -100vw;
 	bottom: 0;
 	margin: 0;
 	padding: 80px 0 50px;
@@ -273,65 +278,108 @@ a:hover {
 	padding: 20px;
 }
 
-.main > .section {
+.section {
+	display: flex;
+	align-items: center;
 	justify-content: center;
 	text-align: center;
 	flex-direction: column;
-	display: flex;
 	margin-bottom: 20px;
-	gap: 20px;
+	gap: 10px;
+
+	> .title {
+		color: var(--text-primary);
+		font-weight: bold;
+		font-size: 2.5em;
+		text-align: center;
+		margin: 14px;
+	}
+
+	> .tagline {
+		padding-left: 20px;
+		padding-right: 20px;
+		text-align: center;
+	}
 }
 
-.main > .section > .title {
-	font-size: 30px;
-	text-align: center;
-	margin: 15px;
-}
+.games-list {
+	display: grid;
+	grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+	transition-duration: 0.5s;
 
-.main > .section > .tagline {
-	padding-left: 20px;
-	padding-right: 20px;
-	font-size: 16px;
-	text-align: center;
+	> .game-item {
+		padding: 6px;
+		opacity: 0.8;
+
+		&:hover {
+			padding: 8px;
+			opacity: 0.9;
+
+			> .overflow > img {
+				transform: scale(1.025);
+			}
+		}
+
+		> .overflow {
+			border-radius: 8px;
+			overflow: hidden;
+
+			> img {
+				border-radius: 8px;
+			}
+		}
+
+		> h1 {
+			padding-left: 2px;
+		}
+		
+		> p {
+			padding-left: 4px;
+		}
+
+	}
 }
 
 .footer {
 	background-color: var(--primary);
 	color: var(--text-secondary);
-	justify-content: center;
 	text-align: center;
+	display: flex;
 	flex-direction: column;
-	display: flex;
-	gap: 10px;
-	padding: 30px;
-}
+	gap: 12px;
+	padding: 20px;
 
-.footer > .social {
-	justify-content: center;
-	text-align: center;
-	display: flex;
-	gap: 20px;
-	padding: 8px;
-}
+	> .social {
+		justify-content: center;
+		text-align: center;
+		display: flex;
+		gap: 10px;
+		padding: 8px;
 
-.footer > .social > a {
-	color: var(--text-secondary);
-	text-decoration: none;
-	flex: 0.1;
-}
+		> a {
+			font-size: 0.85em;
+			color: var(--text-secondary);
+			text-decoration: none;
 
-.footer > .social > a:hover {
-	color: var(--text-primary);
-}
+			&:hover {
+				color: var(--text-primary);
+			}
+		}
+	}
 
-.footer > .theme-switch {
-	position: relative;
-	right: 0;
-	bottom: 0;
-}
+	> .theme-switch {
+		position: relative;
+		right: 0;
+		bottom: 0;
 
-.footer > .theme-switch > i {
-	display: none;
+		i {
+			display: none;
+		}
+	}
+
+	> p {
+		font-size: 0.75em;
+	}
 }
 
 .button-primary-outline {
@@ -340,11 +388,16 @@ a:hover {
 	background-color: transparent;
 	color: var(--primary);
 	text-align: center;
-}
 
-.button-primary-outline:hover {
-	background-color: var(--primary);
-	color: var(--text-primary);
+	&.small {
+		padding: 10px;
+		font-size: 0.75em;
+	}
+
+	&:hover {
+		background-color: var(--primary);
+		color: var(--text-primary);
+	}
 }
 
 .button-text-primary-outline {
@@ -353,39 +406,51 @@ a:hover {
 	background-color: transparent;
 	color: var(--text-primary);
 	text-align: center;
-}
 
-.button-text-primary-outline:hover {
-	background-color: var(--text-primary);
-	color: var(--primary);
-}
+	&.small {
+		padding: 10px;
+		font-size: 0.75em;
+	}
 
-@media (min-width: 0px) {
-	body {
-		font-size: 14px;
+	&:hover {
+		background-color: var(--text-primary);
+		color: var(--primary);
 	}
 }
 
-@media (min-width: 576px) {
+/* Mobile */
+@media (max-width: 767px) {
+	body::after {
+		content: 'log: Mobile';
+	}
+
 	body {
 		font-size: 16px;
 	}
+
+	.games-list {
+		grid-template-columns: 1fr;
+	}
 }
 
-@media (min-width: 768px) {
+/* Tablet */
+@media (min-width: 768px) and (max-width: 991px) {
+	body::after {
+		content: 'log: Tablet';
+	}
+
 	body {
 		font-size: 18px;
 	}
 }
 
+/* PC */
 @media (min-width: 992px) {
+	body::after {
+		content: 'log: PC';
+	}
+
 	body {
 		font-size: 20px;
-	}
-}
-
-@media (min-width: 1200px) {
-	body {
-		font-size: 22px;
 	}
 }
