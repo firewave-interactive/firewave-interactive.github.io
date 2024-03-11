@@ -35,9 +35,15 @@
 	-webkit-user-select: none;
 	-moz-user-select: none;
 	max-width: 100%;
+	max-height: 100%;
 	margin: 0;
 	padding: 0;
 	transition-duration: 0.5s;
+}
+
+html,
+body {
+	scroll-behavior: smooth;
 }
 
 body {
@@ -45,7 +51,6 @@ body {
 	color: var(--text-primary);
 	letter-spacing: 1px;
 	line-height: 1.6;
-	scroll-behavior: smooth;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -88,36 +93,6 @@ a:hover {
 
 .brand {
 	color: var(--brand);
-}
-
-.cookie-consent {
-	background-color: var(--text-primary);
-	color: var(--primary);
-	position: fixed;
-	text-align: center;
-	display: none;
-	border-top: 20px solid var(--text-primary);
-	border-top-left-radius: 20px;
-	border-top-right-radius: 20px;
-	padding: 20px;
-	left: 0;
-	right: 0;
-	bottom: 0;
-	z-index: 1;
-}
-
-.cookie-consent > h3 {
-	margin-bottom: 20px;
-	color: var(--primary);
-}
-
-.cookie-consent p,
-.cookie-consent a {
-	color: var(--primary);
-}
-
-.cookie-consent a {
-	opacity: 0.5;
 }
 
 .header {
@@ -422,9 +397,7 @@ a:hover {
 
 /* Mobile */
 @media (max-width: 767px) {
-	body::after {
-		content: 'log: Mobile';
-	}
+	body::after {}
 
 	body {
 		font-size: 16px;
@@ -437,9 +410,7 @@ a:hover {
 
 /* Tablet */
 @media (min-width: 768px) and (max-width: 991px) {
-	body::after {
-		content: 'log: Tablet';
-	}
+	body::after {}
 
 	body {
 		font-size: 18px;
@@ -448,9 +419,7 @@ a:hover {
 
 /* PC */
 @media (min-width: 992px) {
-	body::after {
-		content: 'log: PC';
-	}
+	body::after {}
 
 	body {
 		font-size: 20px;

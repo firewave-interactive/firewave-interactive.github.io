@@ -1,0 +1,7 @@
+{
+	"scripts": {
+		"start": "bundle exec jekyll build",
+		"dev": "bundle exec jekyll serve",
+		"push": "git add -A && git commit -m 'changes and improvements' && git push origin main"
+	}
+}

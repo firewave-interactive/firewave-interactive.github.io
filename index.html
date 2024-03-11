@@ -135,21 +135,12 @@
 			</p>
 		</center>
 	</main>
-	<div class="cookie-consent">
-		<h3>
-			Hey! Do you like cookies?
-		</h3>
-		<p>
-			Some of our cookies collect data only to remember your user's website preferences. In the case of analytics or marketing cookies, we always collect as little data as possible to ensure we keep our marketing well targeted - which usually results in you not being spammed by any of our ads. We also never analyze data about you, in particular, everything at FireWave Interactive is analyzed in aggregate. <a href="/privacy.html">Read more</a>
-		</p>
-		<button class="button-primary-outline cookie-consent-button" style="width: 100%; margin-top: 1.25em;">ACCEPT</button>
-	</div>
 	<footer class="footer">
 		<div class="social">
 			<a href="https://twitter.com/firewaveinterac" target="_blank"><i class="fa-brands fa-x-twitter fa-2x"></i></a>
 			<a href="https://youtube.com/firewaveinteractive" target="_blank"><i class="fa-brands fa-youtube fa-2x"></i></a>
 			<a href="https://instagram.com/firewaveinteractive" target="_blank"><i class="fa-brands fa-instagram fa-2x"></i></a>
-			<a href="https://gabriel-aplok.github.io/discord" target="_blank"><i class="fa-brands fa-discord fa-2x"></i></a>
+			<a href="https://gabriel-aplok.com/discord" target="_blank"><i class="fa-brands fa-discord fa-2x"></i></a>
 		</div>
 		<p>&copy; 2022-<span class="footer-copyright-y">2024</span> FIREWAVE INTERACTIVE. ALL RIGHTS RESERVED.</p>
 		<p>ALL COPYRIGHTS AND TRADEMARKS ARE THE PROPERTY OF THEIR RESPECTIVE OWNERS.</p>
@@ -158,6 +149,27 @@
 			<i class="fa-solid fa-sun fa-lg"></i>
 		</div>
 	</footer>
+
+	<script src="https://cdn.jsdelivr.net/gh/manucaralmo/GlowCookies@3.1.8/src/glowCookies.min.js"></script>
+	{% if page.url != "/privacy.html" %}
+	<script>
+		glowCookies.start("en", {
+			style: 1,
+			analytics: "{{ site.google_analytics }}",
+			policyLink: "{{ 'privacy.html' | absolute_url }}",
+			bannerDescription: "This site uses cookies to personalize content and analyze traffic. By continuing, you agree to the use of cookies.",
+			bannerLinkText: "Read more",
+			bannerBackground: "#FAFAFA",
+			bannerColor: "#09090B",
+			acceptBtnBackground: "#FF5722",
+			acceptBtnColor: "#FAFAFA",
+			rejectBtnBackground: "#09090B",
+			rejectBtnColor: "#FAFAFA",
+			manageBackground: "#09090B",
+			manageColor: "#FAFAFA"
+		});
+	</script>
+	{% endif %}
 	<script defer src="/assets/js/main.js"></script>
 </body>
 </html>
