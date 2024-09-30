@@ -162,26 +162,6 @@
 		</div>
 	</footer>
 
-	<script src="https://cdn.jsdelivr.net/gh/manucaralmo/GlowCookies@3.1.8/src/glowCookies.min.js"></script>
-	{% if page.url != "/privacy.html" %}
-	<script>
-		glowCookies.start("en", {
-			style: 1,
-			analytics: "{{ site.google_analytics }}",
-			policyLink: "{{ 'privacy.html' | absolute_url }}",
-			bannerDescription: "This site uses cookies to personalize content and analyze traffic. By continuing, you agree to the use of cookies.",
-			bannerLinkText: "Read more",
-			bannerBackground: "#FAFAFA",
-			bannerColor: "#09090B",
-			acceptBtnBackground: "#FF5722",
-			acceptBtnColor: "#FAFAFA",
-			rejectBtnBackground: "#09090B",
-			rejectBtnColor: "#FAFAFA",
-			manageBackground: "#09090B",
-			manageColor: "#FAFAFA"
-		});
-	</script>
-	{% endif %}
 	<script defer src="/assets/js/main.js"></script>
 </body>
 
