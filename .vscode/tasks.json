@@ -1,0 +1,19 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "Run Dev Server",
+            "type": "shell",
+            "command": "npm run dev",
+            "problemMatcher": [],
+            "detail": "Runs the development server using npm",
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "options": {
+                "cwd": "${workspaceFolder}"
+            }
+        }
+    ]
+}

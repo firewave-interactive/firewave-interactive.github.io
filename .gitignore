@@ -1,6 +1,32 @@
-_site
-.sass-cache
-.jekyll-cache
-.jekyll-metadata
-vendor
-public
+# Dependency directories
+.bundle/
+.jekyll-cache/
+.sass-cache/
+
+# Build output
+_site/
+
+# Dependency files
+Gemfile.lock
+
+# Ruby gems
+*.gem
+
+# OS generated files
+.DS_Store
+Thumbs.db
+
+# Editor directories and files
+# .vscode/
+# .idea/
+*.swp
+*.swo
+
+# Vercel
+.vercel
+.vercelignore
+.vercel/output/
+.vercel/project.json
+.vercel/cache/
+vendor/
+vendor/*
