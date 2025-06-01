@@ -30,3 +30,12 @@ Thumbs.db
 .vercel/cache/
 vendor/
 vendor/*
+
+# Bun
+.bun/
+bun.lock
+
+# npm
+node_modules/
+npm-debug.log*
+package-lock.json

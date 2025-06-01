@@ -1,6 +1,17 @@
 {
+    "name": "firewave-interactive.github.io",
+    "module": "index.ts",
+    "type": "module",
+    "private": true,
     "scripts": {
         "start": "bundle exec jekyll build",
-        "dev": "bundle exec jekyll serve --livereload"
+        "dev": "bundle exec jekyll serve --livereload",
+        "build": "bundle exec jekyll build"
+    },
+    "devDependencies": {
+        "@types/bun": "latest"
+    },
+    "peerDependencies": {
+        "typescript": "^5.8.3"
     }
 }
