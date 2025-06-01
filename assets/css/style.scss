@@ -1,427 +1,474 @@
 ---
 ---
 
-@import url("https://fonts.googleapis.com/css2?family=Lato&display=swap");
+/* =========================
+    Imports & Fonts
+    ========================= */
+@import url('https://fonts.googleapis.com/css2?family=Lato&display=swap');
 
 @font-face {
-	font-family: "Firealistic";
-	src: url("../font/firealistic-regular.otf");
+    font-family: 'Firealistic';
+    src: url('../font/firealistic-regular.otf');
 }
 
+/* =========================
+    CSS Variables
+    ========================= */
 :root {
-	--shark: #282B2C;
-	--iron: #D0D2D4;
-	--oslo-gray: #939496;
-	--manatee: #8C8C94;
-	--primary: #000000;
-	--text-primary: var(--iron);
-	--text-secondary: var(--oslo-gray);
-	--brand: #FF5722;
-	--overlay: rgba(0, 0, 0, 0.6);
-	--font-family: "Lato", "Helvetica Neue", Helvetica, Arial, Sans-Serif;
+    --shark: #282b2c;
+    --iron: #d0d2d4;
+    --oslo-gray: #939496;
+    --manatee: #8c8c94;
+    --primary: #000;
+    --text-primary: var(--iron);
+    --text-secondary: var(--oslo-gray);
+    --brand: #ff5722;
+    --overlay: rgba(0, 0, 0, 0.6);
+    --font-family: 'Lato', 'Helvetica Neue', Helvetica, Arial, sans-serif;
 }
 
 .light-theme {
-	--primary: white;
-	--text-primary: var(--shark);
-	--text-secondary: var(--manatee);
-	--overlay: rgba(255, 255, 255, 0.6);
+    --primary: #fff;
+    --text-primary: var(--shark);
+    --text-secondary: var(--manatee);
+    --overlay: rgba(255, 255, 255, 0.6);
 }
 
-* {
-	font-family: var(--font-family);
-	box-sizing: border-box;
-	user-select: none;
-	-webkit-user-select: none;
-	-moz-user-select: none;
-	max-width: 100%;
-	max-height: 100%;
-	margin: 0;
-	padding: 0;
-	transition-duration: 0.5s;
+/* =========================
+    Reset & Base Styles
+    ========================= */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    user-select: none;
+    max-width: 100%;
+    max-height: 100%;
+    margin: 0;
+    padding: 0;
+    transition: background 0.5s, color 0.5s, border 0.3s;
+}
+
+body,
+input,
+button,
+textarea,
+select {
+    font-family: var(--font-family);
 }
 
 html,
 body {
-	scroll-behavior: smooth;
+    scroll-behavior: smooth;
 }
 
 body {
-	background-color: var(--primary);
-	color: var(--text-primary);
-	letter-spacing: 1px;
-	line-height: 1.6;
+    background: var(--primary);
+    color: var(--text-primary);
+    letter-spacing: 1px;
+    line-height: 1.6;
 }
 
-h1, h2, h3, h4, h5, h6 {
-	color: var(--text-primary);
-	font-weight: bold;
+/* =========================
+    Typography
+    ========================= */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    color: var(--text-primary);
+    font-weight: bold;
 }
 
 h1 {
-	font-size: 32px;
+    font-size: 2.5rem;
 }
-
 h2 {
-	font-size: 28px;
+    font-size: 2rem;
 }
-
 h3 {
-	font-size: 24px;
+    font-size: 1.5rem;
 }
-
 h4 {
-	font-size: 20px;
+    font-size: 1.25rem;
 }
-
 h5 {
-	font-size: 18px;
+    font-size: 1.125rem;
 }
-
 h6 {
-	font-size: 16px;
-	color: var(--text-secondary);
+    font-size: 1rem;
+    color: var(--text-secondary);
 }
 
-a, p {
-	color: var(--text-secondary);
+a,
+p {
+    color: var(--text-secondary);
 }
 
+a {
+    text-decoration: none;
+    transition: color 0.3s;
+}
 a:hover {
-	color: var(--brand);
+    color: var(--brand);
 }
 
 .brand {
-	color: var(--brand);
+    color: var(--brand);
 }
 
+/* =========================
+    Header & Hamburger Menu
+    ========================= */
 .header {
-	position: relative;
-	justify-content: center;
-	text-align: center;
-	flex-direction: column;
-	display: flex;
-	gap: 10px;
-	padding-top: calc(50vw - 50vh);
-	padding-bottom: calc(50vw - 50vh);
-	min-height: calc(100vh);
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    gap: 10px;
+    min-height: 100vh;
+    padding: calc(50vw - 50vh) 0;
 }
 
 .header.custom {
-	background-image: linear-gradient(var(--overlay), var(--primary)), url("./../img/background.png");
-	background-attachment: local;
-	background-repeat: no-repeat;
-	background-size: cover;
+    background: linear-gradient(var(--overlay), var(--primary)),
+        url('./../img/background.png') no-repeat center/cover;
+    background-attachment: local;
 }
 
+/* Hamburger Navigation */
 .header .navigation {
-	display: block;
-	position: fixed;
-	top: 40px;
-	right: 20px;
-	z-index: 9999;
-	user-select: none;
-	-webkit-user-select: none;
-	-moz-user-select: none;
+    position: fixed;
+    top: 30px;
+    right: 30px;
+    z-index: 10000;
+    display: flex;
+    align-items: center;
+    user-select: none;
 }
 
-.header .navigation .toggle-menu {
-	display: block;
-	width: 40px;
-	height: 40px;
-	position: absolute;
-	top: -15px;
-	left: -5px;
-	cursor: pointer;
-	opacity: 0;
-	z-index: 99999;
-	-webkit-touch-callout: none;
+.hamburger {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 44px;
+    height: 44px;
+    cursor: pointer;
+    z-index: 11000;
+    background: rgba(0, 0, 0, 0.05);
+    border-radius: 50%;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    transition: background 0.3s;
+}
+.hamburger:hover {
+    background: rgba(0, 0, 0, 0.12);
+}
+.hamburger span {
+    display: block;
+    height: 4px;
+    width: 28px;
+    margin: 4px auto;
+    background: var(--text-primary);
+    border-radius: 2px;
+    transition: 0.4s;
+    opacity: 0.85;
+    pointer-events: none;
 }
 
-.header .navigation span {
-	background-color: var(--text-primary);
-	display: block;
-	width: 33px;
-	height: 3px;
-	margin-bottom: 6px;
-	position: relative;
-	opacity: 0.8;
-	border-radius: 2px;
-	z-index: 9999;
-	transform-origin: 4px 0px;
-	transition: transform 0.5s cubic-bezier(0.77, 0.2, .05, 1), opacity 0.75s ease;
+/* Hamburger Animation */
+#menu-toggle {
+    display: none;
+}
+#menu-toggle:checked + .hamburger span:nth-child(1) {
+    transform: translateY(8px) rotate(45deg);
+}
+#menu-toggle:checked + .hamburger span:nth-child(2) {
+    opacity: 0;
+}
+#menu-toggle:checked + .hamburger span:nth-child(3) {
+    transform: translateY(-8px) rotate(-45deg);
 }
 
-.header .navigation span:first-child {
-	transform-origin: 0% 0%;
+/* Navigation Menu */
+.menu {
+    position: fixed;
+    top: 0;
+    right: -100vw;
+    width: 100vw;
+    height: 100vh;
+    background: var(--primary);
+    opacity: 0;
+    padding: 100px 0 50px;
+    margin: 0;
+    list-style: none;
+    overflow-y: auto;
+    box-shadow: 10px 0 20px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 24px;
+    transition: right 0.5s cubic-bezier(0.77, 0.2, 0.05, 1), opacity 0.4s;
+}
+#menu-toggle:checked ~ .menu {
+    right: 0;
+    opacity: 1;
 }
 
-.header .navigation span:nth-last-child(2) {
-	transform-origin: 0% 100%;
+.menu li {
+    font-size: 1.5rem;
+}
+.menu a {
+    color: var(--text-secondary);
+    font-weight: bold;
+    padding: 10px 24px;
+    border-left: 3px solid transparent;
+    transition: border-color 0.3s, color 0.3s;
+}
+.menu a.active,
+.menu a:hover {
+    color: var(--text-primary);
+    border-color: var(--text-primary);
 }
 
-.header .navigation .toggle-menu:checked ~ span {
-	opacity: 1;
-	transform: rotate(45deg) translate(-2px, -1px);
-}
-
-.header .navigation .toggle-menu:checked ~ span:nth-last-child(2) {
-	opacity: 1;
-	transform: rotate(-45deg) translate(0, -1px);
-}
-
-.header .navigation .toggle-menu:checked ~ span:nth-last-child(3) {
-	opacity: 0;
-	transform: rotate(0deg) scale(0.2, 0.2);
-}
-
-.header .navigation .menu {
-	background-color: var(--primary);
-	position: fixed;
-	width: 100%;
-	top: 0;
-	right: -100vw;
-	bottom: 0;
-	margin: 0;
-	padding: 80px 0 50px;
-	opacity: 0;
-	overflow-y: auto;
-	list-style-type: none;
-	transition: right 0.75s cubic-bezier(0.77, 0.2, 0.05, 1), opacity 0.5s ease-in-out;
-	box-shadow: 10px 0 20px rgba(0, 0, 0, 0.1);
-}
-
-.header .navigation .menu li {
-	padding: 0;
-	font-size: 24px;
-}
-
-.header .navigation .menu a {
-	color: var(--text-secondary);
-	font-weight: bold;
-	display: block;
-	background-color: transparent;
-	padding: 10px 20px;
-	text-decoration: none;
-	border-left: 3px solid transparent;
-	transition: border-color .3s ease-in-out;
-}
-
-.header .navigation .menu a.active {
-	color: var(--text-primary);
-	border-color: var(--text-primary);
-}
-
-.header .navigation .menu a:hover {
-	color: var(--text-primary);
-}
-
-.header .navigation .toggle-menu:checked ~ .menu {
-	right: 0;
-	opacity: 1;
-}
-
+/* =========================
+    Header Content
+    ========================= */
 .header > .logo > h1 {
-	color: var(--text-primary);
-	font-size: 40px;
-	font-family: "Firealistic";
+    color: var(--text-primary);
+    font-size: 2.5rem;
+    font-family: 'Firealistic', var(--font-family);
 }
 
 .header > .tagline > p {
-	color: var(--text-primary);
-	letter-spacing: 6px;
-	padding: 12px;
-	font-size: 14px;
+    color: var(--text-primary);
+    letter-spacing: 6px;
+    padding: 12px;
+    font-size: 1rem;
 }
 
 .header > a > .call-to-action {
-	margin: 40px;
-	padding: 20px;
-	font-size: 16px;
-	border: 1px solid var(--text-primary);
-	background-color: transparent;
-	color: var(--text-primary);
-	text-align: center;
+    margin: 40px;
+    padding: 20px;
+    font-size: 1rem;
+    border: 1px solid var(--text-primary);
+    background: transparent;
+    color: var(--text-primary);
+    text-align: center;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: background 0.3s, color 0.3s;
 }
-
 .header > a > .call-to-action:hover {
-	background-color: var(--text-primary);
-	color: var(--primary);
+    background: var(--text-primary);
+    color: var(--primary);
 }
 
+/* =========================
+    Main & Sections
+    ========================= */
 .main {
-	padding: 20px;
+    padding: 20px;
 }
 
 .section {
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	text-align: center;
-	flex-direction: column;
-	margin-bottom: 20px;
-	gap: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    margin-bottom: 20px;
+    gap: 10px;
 
-	> .title {
-		color: var(--text-primary);
-		font-weight: bold;
-		font-size: 2.5em;
-		text-align: center;
-		margin: 14px;
-	}
-
-	> .tagline {
-		padding-left: 20px;
-		padding-right: 20px;
-		text-align: center;
-	}
+    > .title {
+        color: var(--text-primary);
+        font-weight: bold;
+        font-size: 2.5em;
+        margin: 14px;
+    }
+    > .tagline {
+        padding: 0 20px;
+        text-align: center;
+    }
 }
 
+/* =========================
+    Games List
+    ========================= */
 .games-list {
-	display: grid;
-	grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-	transition-duration: 0.5s;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 16px;
+    transition: 0.5s;
 
-	> .game-item {
-		padding: 6px;
-		opacity: 0.8;
+    > .game-item {
+        padding: 6px;
+        opacity: 0.85;
+        border-radius: 8px;
+        background: rgba(255, 255, 255, 0.01);
+        transition: box-shadow 0.3s, opacity 0.3s, padding 0.2s;
 
-		&:hover {
-			padding: 8px;
-			opacity: 0.9;
+        &:hover {
+            padding: 8px;
+            opacity: 1;
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
 
-			> .overflow > img {
-				transform: scale(1.025);
-			}
-		}
+            > .overflow > img {
+                transform: scale(1.025);
+            }
+        }
 
-		> .overflow {
-			border-radius: 8px;
-			overflow: hidden;
+        > .overflow {
+            border-radius: 8px;
+            overflow: hidden;
 
-			> img {
-				border-radius: 8px;
-			}
-		}
+            > img {
+                border-radius: 8px;
+                transition: transform 0.3s;
+            }
+        }
 
-		> h1 {
-			padding-left: 2px;
-		}
-		
-		> p {
-			padding-left: 4px;
-		}
-
-	}
+        > h1 {
+            padding-left: 2px;
+        }
+        > p {
+            padding-left: 4px;
+        }
+    }
 }
 
+/* =========================
+    Footer
+    ========================= */
 .footer {
-	background-color: var(--primary);
-	color: var(--text-secondary);
-	text-align: center;
-	display: flex;
-	flex-direction: column;
-	gap: 12px;
-	padding: 20px;
+    background: var(--primary);
+    color: var(--text-secondary);
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    padding: 20px;
 
-	> .social {
-		justify-content: center;
-		text-align: center;
-		display: flex;
-		gap: 10px;
-		padding: 8px;
+    > .social {
+        display: flex;
+        justify-content: center;
+        gap: 10px;
+        padding: 8px;
 
-		> a {
-			font-size: 0.85em;
-			color: var(--text-secondary);
-			text-decoration: none;
+        > a {
+            font-size: 0.85em;
+            color: var(--text-secondary);
+            /* transition: color 0.3s; */
+            &:hover {
+                color: var(--text-primary);
+            }
+        }
+    }
 
-			&:hover {
-				color: var(--text-primary);
-			}
-		}
-	}
+    > .theme-switch {
+        position: relative;
+        right: 0;
+        bottom: 0;
+        i {
+            display: none;
+        }
+    }
 
-	> .theme-switch {
-		position: relative;
-		right: 0;
-		bottom: 0;
-
-		i {
-			display: none;
-		}
-	}
-
-	> p {
-		font-size: 0.75em;
-	}
+    > p {
+        font-size: 0.75em;
+    }
 }
 
+/* =========================
+    Buttons
+    ========================= */
 .button-primary-outline {
-	padding: 20px;
-	border: 1px solid var(--primary);
-	background-color: transparent;
-	color: var(--primary);
-	text-align: center;
-	text-decoration: none;
+    padding: 20px;
+    border: 1px solid var(--primary);
+    background: transparent;
+    color: var(--primary);
+    text-align: center;
+    text-decoration: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background 0.3s, color 0.3s;
 
-	&.small {
-		padding: 10px;
-		font-size: 0.75em;
-	}
-
-	&:hover {
-		background-color: var(--primary);
-		color: var(--text-primary);
-	}
+    &.small {
+        padding: 10px;
+        font-size: 0.75em;
+    }
+    &:hover {
+        background: var(--primary);
+        color: var(--text-primary);
+    }
 }
 
 .button-text-primary-outline {
-	padding: 20px;
-	border: 1px solid var(--text-primary);
-	background-color: transparent;
-	color: var(--text-primary);
-	text-align: center;
-	text-decoration: none;
+    padding: 20px;
+    border: 1px solid var(--text-primary);
+    background: transparent;
+    color: var(--text-primary);
+    text-align: center;
+    text-decoration: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background 0.3s, color 0.3s;
 
-	&.small {
-		padding: 10px;
-		font-size: 0.75em;
-	}
-
-	&:hover {
-		background-color: var(--text-primary);
-		color: var(--primary);
-	}
+    &.small {
+        padding: 10px;
+        font-size: 0.75em;
+    }
+    &:hover {
+        background: var(--text-primary);
+        color: var(--primary);
+    }
 }
 
-/* Mobile */
+/* =========================
+    Responsive
+    ========================= */
 @media (max-width: 767px) {
-	body::after {}
-
-	body {
-		font-size: 16px;
-	}
-
-	.games-list {
-		grid-template-columns: 1fr;
-	}
+    body {
+        font-size: 16px;
+    }
+    .games-list {
+        grid-template-columns: 1fr;
+    }
+    .header .navigation {
+        top: 18px;
+        right: 12px;
+    }
 }
 
-/* Tablet */
 @media (min-width: 768px) and (max-width: 991px) {
-	body::after {}
-
-	body {
-		font-size: 18px;
-	}
+    body {
+        font-size: 18px;
+    }
 }
 
-/* PC */
 @media (min-width: 992px) {
-	body::after {}
-
-	body {
-		font-size: 20px;
-	}
+    body {
+        font-size: 20px;
+    }
 }
+
+/* =========================
+    Hamburger HTML Structure
+    ========================= */
+/*
+  <nav class="navigation">
+     <input type="checkbox" id="menu-toggle" />
+     <label class="hamburger" for="menu-toggle">
+        <span></span>
+        <span></span>
+        <span></span>
+     </label>
+     <ul class="menu">
+        <li><a href="#">Home</a></li>
+        ...
+     </ul>
+  </nav>
+*/
